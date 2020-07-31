@@ -1,0 +1,47 @@
+<template>
+    <lightning-button variant="brand" label={btnLabel} title={btnLabel} onclick={openModal} class="slds-m-left_x-small"></lightning-button>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class={modalClass}>
+    <div class="slds-modal__container">
+        <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{modalHeader}</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <template if:true={isContact}>
+                <lightning-record-view-form
+                    record-id={accountId}
+                    object-api-name="Account">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name"></lightning-output-field>
+                            <lightning-output-field field-name="Website"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Potential_Value__c"></lightning-output-field>
+                            <lightning-output-field field-name="Most_Recent_Closed_Date__c"></lightning-output-field>
+                        </div>
+                    </div>
+                </lightning-record-view-form>
+            </template>
+            <template if:false={isContact}>
+                <div class="slds-border_left slds-border_right slds-border_top">                    
+                    <lightning-datatable
+                        key-field="id"
+                        data={contactList}
+                        show-row-number-column
+                        row-number-offset={rowOffset}
+                        hide-checkbox-column
+                        resize-column-disabled
+                        columns={columns}>
+                    </lightning-datatable>
+                </div>
+            </template>
+        </div>
+        <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+        <button class="slds-button slds-button_brand" disabled>Save</button>
+        </footer>
+    </div>
+    </section>
+    <div class={modalBackdropClass}></div>
+    
+    </template>
