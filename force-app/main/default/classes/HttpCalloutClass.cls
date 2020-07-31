@@ -1,4 +1,5 @@
 public class HttpCalloutClass {
+    //This is the class.
     public static void makingACallout() {
         String url = 'https://postman-echo.com/get?foo1=bar1&foo2=bar2';
         Http handler = new Http();

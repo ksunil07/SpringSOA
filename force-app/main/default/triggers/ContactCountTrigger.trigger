@@ -33,3 +33,5 @@ trigger ContactCountTrigger on Contact (After insert, After delete, After undele
        System.debug('Exception has occured while updating the accounts'); 
     }
 }
+
+//Trigger to populate number of contacts.

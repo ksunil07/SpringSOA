@@ -64,6 +64,7 @@ export default class recentlyCreated10Accounts extends LightningElement {
             });
             this.dispatchEvent(toastEvent);
         }
+        
     }
     
 }

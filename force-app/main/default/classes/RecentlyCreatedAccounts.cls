@@ -10,3 +10,4 @@ public with sharing class RecentlyCreatedAccounts {
         return accList;
     }
 }
+//Cotroller will send data to LWC.
