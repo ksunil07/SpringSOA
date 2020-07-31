@@ -1,0 +1,24 @@
+<template>
+    <lightning-card class=".slds-text-title_bold " icon-name="standard:contact_list">
+        <h1 slot="title"><b>Recently created Accounts</b></h1>
+        <div class="slds-m-around_medium">
+        <template if:true={data}>
+            <div class="slds-p-horizontal_medium" style="height: 360px">
+                <lightning-datatable 
+                    key-field="id"
+                    data={data}
+                    hide-checkbox-column
+                    show-row-number-column
+                    row-number-offset={rowOffset}
+                    columns={columns}>
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class = "NoData">
+            <p><br>No data to Display.</br></p>
+            </div>
+        </template>
+        </div>
+    </lightning-card>
+</template>
